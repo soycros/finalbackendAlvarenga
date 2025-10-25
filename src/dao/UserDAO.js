@@ -1,27 +1,27 @@
-import { UserModel } from '../models/User.js';
+import userModel from '../models/userModel.js';
 
 export class UserDAO {
   async create(userData) {
-    return await UserModel.create(userData);
+    return await userModel.create(userData);
   }
 
   async findByEmail(email) {
-    return await UserModel.findOne({ email });
+    return await userModel.findOne({ email });
   }
 
   async findById(id) {
-    return await UserModel.findById(id);
+    return await userModel.findById(id);
   }
 
   async updatePassword(id, newPassword) {
-    return await UserModel.findByIdAndUpdate(id, { password: newPassword });
+    return await userModel.findByIdAndUpdate(id, { password: newPassword });
   }
 
   async getAll() {
-    return await UserModel.find();
+    return await userModel.find();
   }
 
   async delete(id) {
-    return await UserModel.findByIdAndDelete(id);
+    return await userModel.findByIdAndDelete(id);
   }
 }
