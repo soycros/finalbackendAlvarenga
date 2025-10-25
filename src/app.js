@@ -1,20 +1,34 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import passport from 'passport';
 import userRouter from './routes/userRouter.js';
+import sessionsRouter from './routes/sessions.router.js';
+import passwordRouter from './routes/password.router.js';
+import './config/passport.config.js';
+
+dotenv.config();
 
 const app = express();
 
-// Iniciamos la conexión con MongoDB
-const uri = 'mongodb://127.0.0.1:27017/class-zero';
-mongoose.connect(uri);
+// Conexión a MongoDB
+const uri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/class-zero';
+mongoose.connect(uri)
+  .then(() => console.log('Conectado a MongoDB'))
+  .catch(err => console.error('Error de conexión:', err));
 
-// Middlewares incorporados de Express
-app.use(express.json()); // Formatea los cuerpos json de peticiones entrantes.
-app.use(express.urlencoded({extended: true})); // Formatea query params de URLs para peticiones entrantes.
+// Middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(passport.initialize());
 
+// Rutas
 app.use('/api/users', userRouter);
+app.use('/api/sessions', sessionsRouter);
+app.use('/api/password', passwordRouter);
 
-const PORT = 8080;
+// Inicio del servidor
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-    console.log(`Start Server in Port ${PORT}`);
+  console.log(`Servidor iniciado en el puerto ${PORT}`);
 });
