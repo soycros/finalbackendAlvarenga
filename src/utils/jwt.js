@@ -1,1 +1,1 @@
-JWT_SECRET=x
+JWT_SECRET=3f$9K!z@7Lq#xP2vTg^B8mZrWq*Yd
