@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import passport from 'passport';
 
+import cartRouter from './routes/cart.router.js';
 import userRouter from './routes/userRouter.js';
 import sessionsRouter from './routes/sessions.router.js';
 import { passwordRouter } from './routes/password.router.js'; 
@@ -26,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 
-
+app.use('/api/carts', cartRouter);
 app.use('/api/products', productsRouter);
 app.use('/api/users', userRouter);
 app.use('/api/sessions', sessionsRouter);
