@@ -6,7 +6,7 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.MAIL_USER,
-    pass: process.env.MAIL_PASS
+    pass: process.env.MAIL_PASS,
   }
 });
 
@@ -17,7 +17,7 @@ export const sendResetEmail = async (email, token) => {
   await transporter.sendMail({
     from: 'Ecommerce App',
     to: email,
-    subject: 'Recuperación de contraseña',
+    subject: 'Recuperación de contraseña', 
     html
   });
 };

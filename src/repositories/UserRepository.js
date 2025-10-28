@@ -41,6 +41,11 @@ export class UserRepository {
     return await userDAO.findById(id);
   }
 
+  async getByEmail(email) {
+    if (!email) throw new Error('Email requerido');
+    return await userDAO.findByEmail(email);
+  }
+
   async getAll() {
     return await userDAO.getAll();
   }
