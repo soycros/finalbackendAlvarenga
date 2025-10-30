@@ -4,4 +4,5 @@
     export const passwordRouter = Router();
 
     passwordRouter.post('/request-reset', requestReset);
-    passwordRouter.post('/reset-password', resetPassword);
+    passwordRouter.post('/reset', resetPassword);
+
