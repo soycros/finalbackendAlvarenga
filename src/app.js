@@ -12,6 +12,10 @@ import { passwordRouter } from './routes/password.router.js';
 import purchaseRouter from './routes/purchase.router.js';
 import productsRouter from './routes/products.router.js';
 
+// 🔥 Nuevos routers
+import mocksRouter from './routes/mocks.router.js';
+import petsRouter from './routes/pets.router.js';
+
 import './config/passport.config.js';
 
 const app = express();
@@ -34,6 +38,10 @@ app.use('/api/users', userRouter);
 app.use('/api/sessions', sessionsRouter);
 app.use('/api/password', passwordRouter);
 app.use('/api/purchase', purchaseRouter);
+
+// 🔥 Nuevas rutas de mocks y pets
+app.use('/api/mocks', mocksRouter);
+app.use('/api/pets', petsRouter);
 
 // ✅ Inicio del servidor
 const PORT = process.env.PORT || 8080;
