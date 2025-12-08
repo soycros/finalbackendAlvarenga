@@ -8,3 +8,13 @@
     - Crear un router llamado “userRouter.js” que tenga su ruta principal en “/api/users”.
     - Desarrollar en el router los endpoints correspondientes al CRUD pensado para trabajar con el model de forma asíncrona.
     - Corroborar los resultados con Postman.
+# Proyecto Final Backend
+
+## 🐳 Imagen en Docker Hub
+Disponible en: [soycros/finalbackend-alvarenga:1.0.0](https://hub.docker.com/r/soycros/finalbackend-alvarenga)
+
+## 🚀 Ejecutar con Docker
+```bash
+docker run -p 8080:8080 \
+  -e MONGO_URI="mongodb://127.0.0.1:27017/class-zero" \
+  soycros/finalbackend-alvarenga:1.0.0
