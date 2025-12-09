@@ -8,9 +8,8 @@ services:
       - mongo
     environment:
       - MONGO_URI=mongodb://mongo:27017/class-zero
-    volumes:
-      - .:/app
-      - /app/node_modules
+      - MAIL_USER=fakeuser@example.com
+      - MAIL_PASS=fakepassword123
   mongo:
     image: mongo:6
     ports:
@@ -20,3 +19,4 @@ services:
 
 volumes:
   mongo_data:
+  
